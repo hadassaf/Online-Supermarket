@@ -1,0 +1,58 @@
+
+.images {
+    display: flex;
+    padding: 10px;
+    justify-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    flex-wrap: wrap;
+  }
+  .info {
+    padding: 40px;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    width: 93vw;
+    margin: auto;
+    text-align: center;
+    background-image: url('../../../../assets/images/cartt.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 2em;
+    margin-top: 2em;
+  }
+
+.numbers{
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+  align-items: center;
+ 
+  color: black;
+}
+.numbers span{
+  font-size: 60px;
+}
+.numbers div{
+  margin: 10px;
+  gap: 15px;
+  align-items: center;
+  padding: 25px;
+  background-color: rgba(0, 0, 0, 0.702);
+  color: white;
+  display: flex;
+  flex-direction: column;
+ 
+}
+.images img{
+  top: 10em;
+  height: 80vh;
+  z-index: 2;
+  position: sticky;
+  width: 22vw;
+  height: 80vh;
+  margin: 1vw;
+  object-fit: cover;
+  cursor: pointer;
+
+}
+

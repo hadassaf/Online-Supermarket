@@ -1,0 +1,13 @@
+nav{
+    display:  flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+    gap: 15vw; 
+    font-size:20px ;   
+
+}

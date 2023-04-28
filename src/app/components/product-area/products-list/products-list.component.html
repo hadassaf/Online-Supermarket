@@ -1,0 +1,17 @@
+<div class="box">
+    <div class="super">
+        <div class="categories">
+            <div class="search">
+                <mat-form-field >
+                <input type="text" matInput placeholder="Search" name= "search" [(ngModel)]= "search">
+                <button matSuffix mat-button (click)="Search()"><mat-icon >search</mat-icon></button>
+                </mat-form-field>
+                </div>
+            <button mat-button color="success"  *ngFor="let c of categories" (click)="getByCategry(c._id)"> {{c.name}}</button>
+        </div>
+        <div class="cards">
+            <app-products-card *ngFor="let product of products" [product]="product"></app-products-card>
+        </div>
+    </div>
+    <app-cart-list ></app-cart-list>
+</div>

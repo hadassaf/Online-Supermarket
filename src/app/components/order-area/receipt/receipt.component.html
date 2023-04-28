@@ -1,0 +1,44 @@
+<div class="receipt">
+    <button mat-raised-button (click)="nav()" > Back to shop</button> 
+    <button  mat-raised-button (click)="generatePDF('download')">Download Reciept</button>
+    <button  mat-raised-button (click)="order()">Order </button>
+<div class="container">
+      <div class="search-input">
+        <mat-form-field class="example-full-width">
+            <mat-label>Search here: </mat-label>
+            <input type="email" matInput  [(ngModel)]="searchText" type="search">
+          </mat-form-field>
+       </div>
+    </div>
+    <div id="htmlData"  >
+    <table >
+       <thead>
+            <tr>
+                <th> Item</th>
+                <th> Rate</th>
+                <th> Quantity</th>
+                <th> Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cartItems"> 
+                <td [innerHTML]="item.product.name | highlighter:searchText"> 	</td>
+                <td> ${{item.price}}</td>
+                <td> {{item.quantity}}</td>
+                <td> ${{item.price * item.quantity}}</td>
+            </tr>
+        </tbody> 
+        <tfoot>
+            <tr class="total">
+                <td></td> 
+                <td></td>
+                <td>Total </td>
+                <td> $ {{totalPrice}} </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+
+
+</div>   

@@ -1,0 +1,36 @@
+.box {
+  display: grid;
+  grid-template-areas:'main main main menu menu ';
+  gap: 10px;
+  height: 100vh;
+}
+.categories{
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content:flex-start;
+}
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+}
+app-cart-list { 
+    grid-area: menu;  
+}
+.super { 
+    grid-area: main;
+}
+button {
+    padding-bottom: 2em;
+    padding-top: 2em;
+    border: 1px solid yellow;
+    margin: 0.2em;
+}
+
+mat-form-field{
+    margin-left: 1em;
+     width: 10em;
+     padding-top: 0;
+     padding-bottom: 0;
+    }
+

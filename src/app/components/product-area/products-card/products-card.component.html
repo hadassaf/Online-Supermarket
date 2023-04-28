@@ -1,0 +1,20 @@
+<mat-card >
+    <img mat-card-image [src]="config.productsImages+ product.imageUrl" [alt]="product.name">  <br>
+    <div class="add"   *ngIf="!authService.manager"  [ngClass]="added()? 'see' : 'add'"> 
+    <button mat-icon-button color="success"  *ngIf="added()" (click)="reduce()" class="plusminus">  
+    <mat-icon>remove</mat-icon>
+    </button>
+    <button  mat-fab color="success"(click)="add()" [disabled]="added()">
+    <mat-icon class="cart" *ngIf="!added()"> add_shopping_cart </mat-icon> <span  *ngIf="added()"> {{quantity}}</span>  </button> 
+    <button mat-icon-button color="success" *ngIf="added()" (click)="enlarge()" class="plusminus">
+    <mat-icon>add</mat-icon>
+    </button></div>
+    <div *ngIf="authService.manager">
+        <button mat-icon-button color="warn" [ngClass]="added()? 'see' : 'add'" (click)="edit(product._id)" >    <mat-icon>edit</mat-icon>
+        </button>
+    </div>
+    <mat-card-title>{{product.name}}</mat-card-title>	
+    <mat-card-subtitle>${{product.price}} <span *ngIf="isVegtable()"> per kg</span></mat-card-subtitle>
+        
+</mat-card>
+   

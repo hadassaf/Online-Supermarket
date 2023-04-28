@@ -1,0 +1,57 @@
+.line{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-items:center;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid; 
+    padding: 10px;
+    margin-top:10px ;
+    margin: 10px;
+    background-color: white;
+}
+.line:hover .plusminus{
+    opacity: 1 ;
+}
+.cart{
+   background-color: yellow;
+   color: blue;
+}
+img{
+    height:  10vh;
+}
+.add{
+    display: flex;
+  flex-direction: column-reverse;
+  height: 15vh;
+  align-items: center;
+  justify-content: space-between;
+}
+.info{
+    height: 15vh;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.plusminus{
+    opacity: 0;
+    width: 2.2857em;
+    height: 2.2857em;
+}
+.mat-icon {
+    width: 1em;
+    height: 1em;
+}
+.removed{
+    opacity: 0.5;
+}
+.image{
+    display: flex;
+    flex-direction: column;
+    align-items:end
+}
+.mat-mdc-raised-button.mat-mdc-button-base{
+    margin: 1vh;
+}

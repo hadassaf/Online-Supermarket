@@ -1,0 +1,22 @@
+<div>
+<button mat-raised-button (click)="close()"> X </button>
+<form [formGroup]="loginGroup"  #loginFormGroup="ngForm">
+    <h1>Login</h1>
+    <mat-form-field>
+      <mat-label>Email</mat-label> 
+      <input matInput type="email" placeholder="Email"  required formControlName="Email"  [(ngModel)]="credentials.email">
+      <mat-error *ngIf="errorHandling('Email', 'required')" > Email is <strong>required</strong></mat-error>      
+      <mat-error *ngIf="errorHandling('Email', 'email')" > Not a valid email</mat-error>      
+    </mat-form-field> <br>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" required formControlName="Password" [type]="hide ? 'password' : 'text'"  [(ngModel)]="credentials.password">
+      <span class="pass" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </span>
+      <mat-error *ngIf="errorHandling('Password', 'required')"> Password is <strong>required</strong></mat-error>      
+    </mat-form-field> <br>
+    <button mat-raised-button *ngIf="loginFormGroup.valid" (click)="login()" mat-dialog-close>Login</button> <br> <br>
+    <button mat-raised-button (click)="register()" class="register">Don't have account already?  Register here!</button>
+
+    </form></div>

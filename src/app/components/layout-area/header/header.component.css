@@ -1,0 +1,14 @@
+header{
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 4px solid  #FAFF00   ;
+    color: #0074d9    ;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: rgba(255, 255, 0);
+    
+}

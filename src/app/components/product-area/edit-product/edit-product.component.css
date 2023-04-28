@@ -1,0 +1,16 @@
+div{
+    max-width: 25%;
+    border-radius: 10px;
+    box-shadow: -1px -2px 20px 2px black;
+    padding: 20px;
+    margin: auto;
+    margin-top: 5vh;
+}
+
+mat-form-field{
+    margin: auto;
+}
+
+img{
+    height: 8vh;
+}

@@ -1,0 +1,76 @@
+
+<mat-stepper #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup"  #firstForm="ngForm">
+      <ng-template matStepLabel>Fill out your details</ng-template>
+      <mat-form-field >
+        <mat-label>Identity Number</mat-label>
+        <input matInput placeholder="Identity Number" required formControlName="Id" [(ngModel)]="user._id">
+        <mat-error *ngIf="errorHandling('Id', 'required')">  Identity Number is <strong>required</strong></mat-error>      
+        <mat-error *ngIf="errorHandling('Id', 'pattern')">  Identity Number is not <strong>valid</strong></mat-error>      
+      </mat-form-field> <br>
+      <mat-form-field>
+        <mat-label>Email</mat-label> 
+        <input matInput placeholder="Email"  required formControlName="Email"  [(ngModel)]="user.email">
+        <mat-error *ngIf="errorHandling('Email', 'required')" > Email is <strong>required</strong></mat-error>      
+        <mat-error *ngIf="errorHandling('Email', 'email')" >  Email is not  valid</mat-error>      
+      </mat-form-field> <br>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" required formControlName="Password" [type]="hide ? 'password' : 'text'"  [(ngModel)]="user.password">
+        <span   class="pass" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </span>
+        <mat-error *ngIf="errorHandling('Password', 'required')"> Password is <strong>required</strong></mat-error>      
+      </mat-form-field> <br>
+      <mat-form-field>
+        <mat-label>Confirm password</mat-label>
+        <input [errorStateMatcher]="matcher" matInput placeholder="Confirm Password" required formControlName="Confirm" [type]="hide ? 'password' : 'text'">
+        <span  class="pass" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </span>  
+        <mat-error *ngIf="errorHandling('Confirm', 'required')"> Confirm password is <strong>required</strong></mat-error> 
+        <mat-error *ngIf="errorHandling3('notSame')">Passwords do not match</mat-error>       
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext [disabled]="firstForm.invalid" >Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Fill out a bit more..." *ngIf="!firstForm.invalid">
+
+    <form [formGroup]="secondFormGroup"  #secondForm="ngForm">
+      <mat-form-field >
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="First Name" required formControlName="FirstName"  [(ngModel)]="user.firstName">
+        <mat-error *ngIf="errorHandling2('FirstName', 'required')"> First Name is <strong>required</strong></mat-error>      
+      </mat-form-field> <br>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label> 
+        <input matInput placeholder="Last Name" required formControlName="LastName"  [(ngModel)]="user.lastName" >
+        <mat-error *ngIf="errorHandling2('LastName', 'required')"> Last Name is <strong>required</strong></mat-error>      
+      </mat-form-field> <br>
+      <mat-form-field>
+        <mat-label>Select City</mat-label>
+        <mat-select formControlName="City" required  [(ngModel)]="user.city">
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let city of cities" [value]="city">
+            {{city}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="errorHandling2('City', 'required')"> City is <strong>required</strong></mat-error>      
+      </mat-form-field><br>
+      <mat-form-field >
+        <mat-label>Street</mat-label> 
+        <input matInput placeholder="Street"  required formControlName="Street"  [(ngModel)]="user.street" >
+        <mat-error *ngIf="errorHandling2('Street', 'required')"> Street is <strong>required</strong></mat-error>      
+      </mat-form-field> <br>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="submit()"  [disabled]="secondForm.invalid" >Register</button>
+        <button mat-button (click)="stepper.reset()">Reset all details</button>
+
+      </div>
+    </form>
+  </mat-step>
+</mat-stepper>

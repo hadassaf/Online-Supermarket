@@ -1,0 +1,21 @@
+<div class="myCart" [class.large]="large" [class.small]="!large"  *ngIf="!auth.manager">
+
+    <h4>
+        <button mat-mini-fab (click)="large =true" *ngIf="!large"> <mat-icon  class="remove">unfold_more</mat-icon>  </button>
+        <span *ngIf="quantity">{{quantity}}</span><mat-icon  class="material-icons-outlined" > shopping_cart </mat-icon>
+        <p class="price" *ngIf="quantity"> {{totalPrice}}$</p>
+
+        <button  mat-raised-button (click)="notify()"> <mat-icon class="remove"> remove_shopping_cart </mat-icon></button> 
+        <button  mat-raised-button (click)="navOrder()">Finish Shoping</button> 
+    </h4>
+    <button mat-mini-fab (click)="large =false" *ngIf="large"><mat-icon  class="remove">keyboard_arrow_up</mat-icon> </button>
+    <div class="preparedCart" *ngIf="emptyCart"> Your time is expansive! We have prepared for you a list of the products you usually buy
+    <button  mat-raised-button (click)="addlIst()">
+         add products from list</button> </div>
+         <app-cart-line *ngFor="let i of items" [item]="i"></app-cart-line>
+    <ng-template #template let-toastRef>
+        <span> Are you sure that you want to to delete all items from cart?</span> <br>
+        <button mat-raised-button  color="warn" (click)="empty()" > Think so--- </button> 
+        <button mat-raised-button  color="primary" (click)="toastRef.close({ dismissedByAction: true })"> No. </button>
+    </ng-template>
+</div>

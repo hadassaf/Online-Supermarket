@@ -1,0 +1,30 @@
+<div class="home">
+
+    <div class="info" *ngIf="!auth.manager">
+        <br><br>
+        <h1> Welcome to Diamarket- <br>
+            The Supermarket for you-<br>
+            Here you will have an enjoyable shopping experience!</h1>
+            <div class="new" *ngIf="newUser()"> 
+                first time for you! welcome nice to know you!!!
+                <button mat-raised-button (click)="nav()" > Start Shoping</button>
+            </div>
+            <div class="hasCart" *ngIf="hasCart()">
+                You have an open cart from the {{cart.date |date}}  with sum of {{totalPrice}} $
+                <button mat-raised-button (click)="nav()">Continue Shoping</button> 
+            </div>
+            <div class="hasCart" *ngIf="!newUser() && !hasCart() &&isLogged()">
+                Your last oredr is from {{order?.bookingDate|date}} with total price of - {{order?.totalPrice}} $
+                <button mat-raised-button (click)="nav()" > Start Shoping</button>
+               </div> <div class="numbers">
+                    <h2 >Some details about us?  </h2>
+                    <div> orders <span>{{counterOrders}}</span> </div>
+                    <div>products <span>{{counterProducts}}</span></div>
+                    <div>Satisfied customers <span>{{counterOrders}}</span></div>   
+                </div>
+            </div>
+    <div class="images">
+        <img *ngFor="let c of categories"[src]="config.categoriesImages+c.imageUrl" (click)="navCategory(c._id)"/>
+    </div>
+    
+</div>

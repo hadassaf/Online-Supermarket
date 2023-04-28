@@ -1,0 +1,14 @@
+.mat-stepper-horizontal {
+    margin-top: 8px;
+    background-color: transparent;
+    width: 60%;
+    margin: auto;
+  }
+  
+  .mat-mdc-form-field {
+    margin-top: 16px;
+  }
+
+  span{
+    margin-right: 10px;
+  }

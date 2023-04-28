@@ -1,0 +1,9 @@
+<div class="menu">
+    <img  class="images" src='assets/images/logi2.png'  height="50px"/>
+<nav>
+    <span class="yellow">|</span> <a routerLink="/home" routerLinkActive="active">Home</a><span class="yellow">|</span> 
+    <a  *ngIf="!auth.manager" routerLink="/list/64049518fee21576a9734147" routerLinkActive="active">List</a> <span class="yellow">|</span> 
+     <a *ngIf="auth.manager" routerLink="/add" routerLinkActive="active">Add Product</a> <span class="yellow">|</span> 
+</nav>
+<div *ngIf="auth.isLoggedIn()" > hi {{ auth.user?.firstName}} <span *ngIf="auth.manager" >-admin</span> ! <span (click)="auth.logout()">Logout</span></div>
+<div *ngIf="!auth.isLoggedIn()" > hi guest ,    <a routerLink="/register" routerLinkActive="active">Register</a></div></div>

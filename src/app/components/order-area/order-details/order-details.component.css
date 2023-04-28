@@ -1,0 +1,16 @@
+form{
+    color:  #1828d3 ;
+    padding: 10vw;
+    min-width: 30vw;
+}
+div{
+    display: flex;
+}
+
+img{
+    margin-right: 10vw;
+    height: 80vh;
+}
+app-receipt{
+    width: 40%;
+}

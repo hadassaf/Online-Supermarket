@@ -1,0 +1,31 @@
+img{
+    height: 5em;
+}
+
+.receipt{
+    padding: 2em;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+    td, th {
+      border: 2px solid #ffffff;
+      text-align: center;
+      padding: 8px;
+    }
+  
+  thead, tfoot{
+    background-color:  #000000;
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  button{
+    margin-bottom: 1vh;
+    margin-right: 1vw;
+  }

@@ -1,0 +1,96 @@
+.myCart{
+    overflow: auto;
+    height: 90vh;
+    border-left: 2px solid #0074d9  ;
+    width: 20em;
+    max-width: 22em;
+    position: sticky;
+    top: 6em;
+    right: 0;
+    background-color:#0074d930;
+    resize:horizontal;
+    direction:rtl;
+    --resizeable-width: 300px;
+
+
+}
+::-webkit-scrollbar-thumb {
+    background:#0074d960; 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0074d9; 
+  }
+
+h4 span{
+    position: absolute;
+    border-radius: 50%;
+    border: #f4f6f8 1px solid;
+    color: #ffffff;
+    text-align: center;
+    background: #0074d9;
+    width: 1.5em;
+    height: 1.5em;
+    top: 0.6em;
+    left: 1.9em;
+}
+.mat-mdc-raised-button.mat-mdc-button-base{
+    margin: 1vh;
+}
+.mat-icon{
+    font-size: 40px;
+    width: 1.5em;
+    height: 3em;
+}
+h4{
+    direction: ltr;
+    justify-content: space-between;
+    padding-top: 20px;
+    width: 100%;
+    height:4em ;
+    background-color: #0074d9;
+    color: white;
+    vertical-align:middle;
+    position: relative;
+    display: flex;
+    gap: 0.2em;
+}
+
+.price{
+    color: white;
+    margin-top: 1em;
+    
+}
+h4 .mdc-button{
+    border: 2px solid #fff;
+    font-size: 10px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 3.2em;
+    margin-top: 0.1em;
+}
+.remove{
+    align-self:first baseline;
+    font-size: 20px;
+}
+.large {
+    min-height: 90vh;
+}
+.small {
+    height: 10vh;
+    width: 4vw;
+}
+.min{
+    max-width: 0.2vw;
+}
+.mat-mdc-mini-fab {
+    margin-right: 1vw;
+    background-color: #0074d9;
+    padding: 0.5vw;
+}
+.preparedCart{
+    text-align: center;
+    margin-top: 15vh;
+    font-size: 15px;
+    color: black;
+}

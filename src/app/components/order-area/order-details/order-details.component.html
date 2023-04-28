@@ -1,0 +1,38 @@
+<div class="orderDetails">
+<form [formGroup]="orderGroup" #orderFormGroup="ngForm">
+    <h2> Order Details </h2>
+    <mat-form-field >
+    <mat-label>Select City</mat-label>
+    <mat-select formControlName="City" required  [(ngModel)]="order.city" (dblclick)="fillInDetailsOfUser()">
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let city of cities" [value]="city">
+            {{city}}
+        </mat-option>
+    </mat-select>
+    <mat-error *ngIf="errorHandling('City', 'required')"> City is <strong>required</strong></mat-error>      
+</mat-form-field><br>
+
+<mat-form-field >
+    <mat-label>Street</mat-label> 
+    <input matInput placeholder="Street"  required formControlName="Street"  [(ngModel)]="order.street" (dblclick)="fillInDetailsOfUser()">
+    <mat-error *ngIf="errorHandling('Street', 'required')"> Strret is <strong>required</strong></mat-error>      
+</mat-form-field> <br>
+
+<mat-form-field >
+  <mat-label>Shiping Date</mat-label>
+  <input  matInput [matDatepicker]="picker" required formControlName="deliveryDate"  [(ngModel)]="order.deliveryDate">
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  <mat-error *ngIf="errorHandling('deliveryDate', 'required')"> Shiping Date is <strong>required</strong></mat-error>      
+  <mat-error *ngIf="errorHandling('deliveryDate', 'tooMuch')"> Please select another date-  This date is already <strong>full</strong>  with deliveries! </mat-error>      
+</mat-form-field> <br> <br>
+
+<mat-form-field>
+  <mat-label>Credit Card Number</mat-label> 
+  <input placeholder="Credit Card Number" [pattern]="CCPattern" required matInput formControlName="CreditCardNumber" [(ngModel)]="order.lastFourDigits" >
+  <mat-error *ngIf="errorHandling('CreditCardNumber', 'required')"> Credit Card Numbers <strong>required</strong></mat-error>      
+  <mat-error *ngIf="errorHandling('CreditCardNumber', 'pattern')"> Credit Card Number is not <strong>valid</strong></mat-error>      
+</mat-form-field> <br>
+      <button mat-button  [disabled]="orderFormGroup.invalid" (click)="submit()">Order</button>
+  </form>
+</div>
